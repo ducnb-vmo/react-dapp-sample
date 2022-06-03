@@ -19,3 +19,4 @@ npx  hardhat run scripts\deploy.js --network localhost
 When you re-start local node, please also reset related account in the metamask
 
 ## TODO
+- Handle case metamask not exist
