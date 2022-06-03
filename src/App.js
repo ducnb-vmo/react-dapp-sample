@@ -54,6 +54,10 @@ function App() {
         const amount = amtRef.current.value;
         const signer = provider.getSigner();
         const contract = new ethers.Contract(tokenAddress, Token.abi, signer);
+        contract.on("Transfer", () => {
+            // do something
+            console.log("got an event");
+        });
         const transaction = await contract.transfer(
             receiverID,
             parseInt(amount)

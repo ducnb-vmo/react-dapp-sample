@@ -13,10 +13,14 @@ contract Token {
     balances[msg.sender] = totalSupply;
   }
 
+  event Transfer();
+
   function transfer(address to, uint amount) external {
     require(balances[msg.sender] >= amount, "Not enough tokens");
     balances[msg.sender] -= amount;
     balances[to] += amount;
+
+    emit Transfer();
   }
 
   function balanceOf(address account) external view returns (uint) {
